@@ -1,0 +1,25 @@
+<form action="#" method="GET">
+    <p>
+        <label><span>姓名：</span>
+            <input [(ngModel)]="infor.name" name="name" /></label>
+    </p>
+    <p>
+        <label><span>性别：</span>
+            <input type="radio" name="sex" [(ngModel)]="infor.sex" value="男" />男
+            <input type="radio" name="sex" [(ngModel)]="infor.sex" value="女" />女
+        </label>
+    </p>
+    <p>
+        <label><span>年龄：</span><input type="number" [(ngModel)]='infor.age' name='age'/></label>
+    </p>
+    <p>
+        <label><span>电话：</span><input [(ngModel)]="infor.tel" name="tel" /></label>
+    </p>
+    <p>
+        <label><span>家庭住址：</span><input [(ngModel)]="infor.address" name="address" /></label>
+    </p>
+    <p>
+      <input type="button" class="btn" (click)="add()" value="保存" />
+    </p>
+  </form>
+  

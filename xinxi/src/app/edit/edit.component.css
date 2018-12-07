@@ -1,0 +1,30 @@
+form{
+    width: 300px;
+    background-color: #cce3f7;
+    border-radius: 30px;
+    margin: 0 auto;
+    padding: 20px;
+}
+form p label input{
+    border-radius: 10px;
+    height: 20px;
+    border: 1px solid #f1c7c7;
+    vertical-align: middle;
+    outline: none;
+    padding-left: 10px;
+}
+form p label span{
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+.btn{
+    width: 80%;
+    height: 30px;
+    margin: 20px 10%;
+    background-color: #f1c7c7;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    outline: none;
+}

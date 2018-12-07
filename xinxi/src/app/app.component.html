@@ -1,0 +1,10 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+   {{ title }}
+  </h1>
+</div>
+
+<router-outlet></router-outlet>
+<app-edit [class.hide]="!ed" (bao)="onBao($event)" [infor]="chuan"></app-edit>
+<app-display [class.hide]="!dis" [infor]="chuan" (xiu)="onXiu($event)"></app-display>
