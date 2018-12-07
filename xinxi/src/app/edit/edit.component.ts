@@ -11,7 +11,7 @@ export class EditComponent implements OnInit, OnChanges {
 
   @Input() public infor: Edit = new Edit();
 
-  @Output() bao = new EventEmitter<boolean>();
+  @Output() bao = new EventEmitter();
 
   constructor() { }
 
