@@ -32,24 +32,10 @@ export class EditComponent implements OnInit, OnChanges {
   onBtnCancel() {
     const cache = JSON.parse(localStorage.getItem('information'));
 
-    if (!(cache.name === this.infor.name)) {
+    if (cache.name !== this.infor.name || cache.sex !== this.infor.sex || cache.age !== this.infor.age || cache.tel !== this.infor.tel || cache.address !== this.infor.address) {
       alert('您已修改数据，未保存');
-      this.onCache(cache);
-    } else if (!(cache.sex === this.infor.sex)) {
-      alert('您已修改数据，未保存');
-      this.onCache(cache);
-    } else if (!(cache.age === this.infor.age)) {
-      alert('您已修改数据，未保存');
-      this.onCache(cache);
-    } else if (!(cache.tel === this.infor.tel)) {
-      alert('您已修改数据，未保存');
-      this.onCache(cache);
-    } else if (!(cache.address === this.infor.address)) {
-      alert('您已修改数据，未保存');
-      this.onCache(cache);
-    } else {
-      this.onCache(cache);
     }
+    this.onCache(cache);
   }
 
   onCache(value) {
