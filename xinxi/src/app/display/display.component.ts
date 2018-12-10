@@ -25,5 +25,4 @@ export class DisplayComponent implements OnInit {
   onRevise() {
     this.modify.emit(this.infor);
   }
-
 }
