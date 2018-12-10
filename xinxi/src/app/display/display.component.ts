@@ -1,5 +1,5 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { Edit } from '../edit';
+import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
+import {Edit} from '../edit';
 
 @Component({
   selector: 'app-display',
@@ -8,11 +8,12 @@ import { Edit } from '../edit';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   @Input() public infor: Edit = new Edit();
 
-  @Output() xiu = new EventEmitter();
+  @Output() modify = new EventEmitter();
 
   ngOnInit() {
     const userJsonStr = localStorage.getItem('information');
@@ -21,8 +22,8 @@ export class DisplayComponent implements OnInit {
     }
   }
 
-  revise() {
-    this.xiu.emit(this.infor);
+  onRevise() {
+    this.modify.emit(this.infor);
   }
 
 }
