@@ -17,12 +17,15 @@
   <div class="big-container">
     <label><span>性别：</span>
       <input type="radio" name="sex" [(ngModel)]="infor.sex" value="男" checked="checked"/>男
+    </label>
+    <label>
       <input type="radio" name="sex" [(ngModel)]="infor.sex" value="女"/>女
     </label>
+
   </div>
   <div class="big-container">
     <label><span>年龄：</span><input type="number" class="form-control form-age" required [(ngModel)]='infor.age'
-                                  name='age' pattern="^\d{0,3}$" #age="ngModel"/></label>
+                                  name='age' pattern="^\d{0,3}$" #age="ngModel" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" /></label>
     <div *ngIf="age.invalid && (age.dirty || age.touched)"
          class="alert alert-danger">
 
@@ -30,7 +33,7 @@
         年龄不能为空
       </div>
       <div *ngIf="age.errors.pattern">
-        请正确输入年龄
+        请输入合理年龄
       </div>
 
     </div>
