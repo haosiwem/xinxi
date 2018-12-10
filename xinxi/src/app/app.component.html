@@ -6,5 +6,5 @@
 </div>
 
 <router-outlet></router-outlet>
-<app-edit [class.hide]="!ed" (bao)="onBao($event)" [infor]="chuan"></app-edit>
-<app-display [class.hide]="!dis" [infor]="chuan" (xiu)="onXiu($event)"></app-display>
+<app-edit [class.hide]="dis" (save)="onSave($event)" [infor]="chuan"></app-edit>
+<app-display [class.hide]="!dis" [infor]="chuan" (modify)="onModify($event)"></app-display>
