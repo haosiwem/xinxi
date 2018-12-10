@@ -1,25 +1,70 @@
-<form action="#" method="GET">
-    <p>
-        <label><span>姓名：</span>
-            <input [(ngModel)]="infor.name" name="name" /></label>
-    </p>
-    <p>
-        <label><span>性别：</span>
-            <input type="radio" name="sex" [(ngModel)]="infor.sex" value="男" />男
-            <input type="radio" name="sex" [(ngModel)]="infor.sex" value="女" />女
-        </label>
-    </p>
-    <p>
-        <label><span>年龄：</span><input type="number" [(ngModel)]='infor.age' name='age'/></label>
-    </p>
-    <p>
-        <label><span>电话：</span><input [(ngModel)]="infor.tel" name="tel" /></label>
-    </p>
-    <p>
-        <label><span>家庭住址：</span><input [(ngModel)]="infor.address" name="address" /></label>
-    </p>
-    <p>
-      <input type="button" class="btn" (click)="add()" value="保存" />
-    </p>
-  </form>
-  
+<form action="#" method="GET" #editForm="ngForm">
+  <div class="big-container">
+    <label><span>姓名：</span>
+      <input [(ngModel)]="infor.name" class="form-control" required minlength="2" name="name" #name="ngModel"/></label>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="name.errors.required">
+        姓名不能为空
+      </div>
+      <div *ngIf="name.errors.minlength">
+        姓名长度必须超过两位
+      </div>
+
+    </div>
+  </div>
+  <div class="big-container">
+    <label><span>性别：</span>
+      <input type="radio" name="sex" [(ngModel)]="infor.sex" value="男" checked="checked"/>男
+      <input type="radio" name="sex" [(ngModel)]="infor.sex" value="女"/>女
+    </label>
+  </div>
+  <div class="big-container">
+    <label><span>年龄：</span><input type="number" class="form-control form-age" required [(ngModel)]='infor.age'
+                                  name='age' pattern="^\d{0,3}$" #age="ngModel"/></label>
+    <div *ngIf="age.invalid && (age.dirty || age.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="age.errors.required">
+        年龄不能为空
+      </div>
+      <div *ngIf="age.errors.pattern">
+        请正确输入年龄
+      </div>
+
+    </div>
+  </div>
+  <div class="big-container">
+    <label><span>电话：</span><input [(ngModel)]="infor.tel" name="tel" class="form-control" required
+                                  pattern="0?(13|14|15|17|18|19)[0-9]{9}" #tel="ngModel"/></label>
+    <div *ngIf="tel.invalid && (tel.dirty || tel.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="tel.errors.required">
+        手机号不能为空
+      </div>
+      <div *ngIf="tel.errors.pattern">
+        手机号不合法
+      </div>
+
+    </div>
+  </div>
+  <div class="big-container">
+    <label><span>家庭住址：</span><input [(ngModel)]="infor.address" name="address" class="form-control" required
+                                    #address="ngModel"/></label>
+    <div *ngIf="address.invalid && (address.dirty || address.touched)"
+         class="alert alert-danger">
+
+      <div *ngIf="address.errors.required">
+        家庭住址不能为空
+      </div>
+
+    </div>
+  </div>
+  <div class="big-container">
+    <input type="submit" class="btn" (click)="onBtnAdd()" value="保存" class="btn btn-success"
+           [disabled]="!editForm.form.valid"/>
+    <input type="button" class="cancel" [class.hide]="can" value="取消" (click)="onBtnCancel()">
+  </div>
+</form>
