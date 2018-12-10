@@ -1,6 +1,6 @@
 export class Edit {
     name = '';
-    sex: string;
+    sex = '男';
     age: number;
     tel = '';
     address: string;
