@@ -14,16 +14,13 @@ export class AppComponent implements OnInit {
   public infor: Edit = new Edit();
 
   public dis = false;
-  public ed = false;
 
-  onBao(infor) {
+  onSave(infor) {
     this.chuan = new Edit(infor);
     this.dis = true;
-    this.ed = false;
   }
 
-  onXiu(infor) {
-    this.ed = true;
+  onModify(infor) {
     this.dis = false;
     this.chuan = new Edit(infor);
   }
@@ -33,8 +30,6 @@ export class AppComponent implements OnInit {
     if (userJsonStr) {
       this.dis = true;
       this.infor = JSON.parse(userJsonStr);
-    } else {
-      this.ed = true;
     }
   }
 }
