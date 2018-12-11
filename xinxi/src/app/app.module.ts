@@ -6,19 +6,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisplayComponent } from './display/display.component';
 import { EditComponent } from './edit/edit.component';
+import { IndexComponent } from './index/index.component';
+import {EditGuard} from './edit/edit.guard';
+import {EditActiveGuard} from './edit/editActive.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayComponent,
-    EditComponent
+    EditComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    EditGuard,
+    EditActiveGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

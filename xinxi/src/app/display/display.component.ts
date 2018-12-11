@@ -1,5 +1,7 @@
 import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import {Edit} from '../edit';
+import {Router} from '@angular/router';
+import {EditActiveGuard} from '../edit/editActive.guard';
 
 @Component({
   selector: 'app-display',
@@ -8,7 +10,8 @@ import {Edit} from '../edit';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router,
+              private editActive: EditActiveGuard) {
   }
 
   @Input() public infor: Edit = new Edit();
@@ -19,10 +22,13 @@ export class DisplayComponent implements OnInit {
     const userJsonStr = localStorage.getItem('information');
     if (userJsonStr) {
       this.infor = JSON.parse(userJsonStr);
+    } else {
+      this.router.navigate(['edit']);
     }
   }
 
-  onRevise() {
-    this.modify.emit(this.infor);
+  onBtnNew() {
+    this.editActive.new = true;
+    this.router.navigate(['edit']);
   }
 }

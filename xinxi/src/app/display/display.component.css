@@ -1,17 +1,19 @@
-.infor{
-    width: 300px;
-    background-color: #cce3f7;
-    border-radius: 30px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
+.infor {
+  width: 300px;
+  background-color: #cce3f7;
+  border-radius: 30px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
-.infor button{
-    width: 50%;
-    color: white;
-    border-radius: 15px;
-    background-color: #f1c7c7;
-    border: none;
-    height: 30px;
-    outline: none;
+
+.infor button {
+  width: 30%;
+  color: white;
+  margin: 0 10px;
+  border-radius: 15px;
+  background-color: #f1c7c7;
+  border: none;
+  height: 30px;
+  outline: none;
 }

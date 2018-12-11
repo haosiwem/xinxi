@@ -1,35 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Edit } from './edit';
+import {Component} from '@angular/core';
+import {AppService} from './app.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = '个人信息登记卡';
+export class AppComponent {
 
-  public chuan: Edit = new Edit();
 
-  public infor: Edit = new Edit();
-
-  public dis = false;
-
-  onSave(infor) {
-    this.chuan = new Edit(infor);
-    this.dis = true;
+  constructor(
+    // private appService: AppService, private router: Router
+  ) {
+    // if (localStorage.getItem('test')) {
+    //   this.router.navigate(['display']);
+    // }
   }
 
-  onModify(infor) {
-    this.dis = false;
-    this.chuan = new Edit(infor);
-  }
 
-  ngOnInit() {
-    const userJsonStr = localStorage.getItem('information');
-    if (userJsonStr) {
-      this.dis = true;
-      this.infor = JSON.parse(userJsonStr);
-    }
-  }
+  // static onIndexChange(event) {
+  //   console.log(event);
+  // }
 }

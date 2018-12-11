@@ -16,7 +16,7 @@
   </div>
   <div class="big-container">
     <label><span>性别：</span>
-      <input type="radio" name="sex" [(ngModel)]="infor.sex" value="男" checked="checked"/>男
+      <input type="radio" name="sex" [(ngModel)]="infor.sex" value="男"/>男
     </label>
     <label>
       <input type="radio" name="sex" [(ngModel)]="infor.sex" value="女"/>女
@@ -66,8 +66,8 @@
     </div>
   </div>
   <div class="big-container">
-    <input type="submit" class="btn" (click)="onBtnAdd()" value="保存" class="btn btn-success"
-           [disabled]="!editForm.form.valid"/>
+    <a routerLink="/display"><input type="submit" class="btn" (click)="onBtnAdd()" value="保存" class="btn btn-success"
+           [disabled]="!editForm.form.valid" /></a>
     <input type="button" class="cancel" [class.hide]="can" value="取消" (click)="onBtnCancel()">
   </div>
 </form>

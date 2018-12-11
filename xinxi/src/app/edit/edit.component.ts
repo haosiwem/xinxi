@@ -1,6 +1,7 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {Edit} from '../edit';
-import {Output, EventEmitter} from '@angular/core';
+import {Router} from '@angular/router';
+import {EditGuard} from './edit.guard';
 
 @Component({
   selector: 'app-edit',
@@ -9,13 +10,12 @@ import {Output, EventEmitter} from '@angular/core';
 })
 export class EditComponent implements OnInit, OnChanges {
 
-  @Input() public infor: Edit = new Edit();
-
-  @Output() save = new EventEmitter();
+  public infor: Edit = new Edit();
 
   public can = false;
 
-  constructor() {
+  constructor(private router: Router,
+              private guard: EditGuard) {
   }
 
   public ngOnChanges(changes: SimpleChanges) {
@@ -25,31 +25,26 @@ export class EditComponent implements OnInit, OnChanges {
   }
 
   onBtnAdd() {
-    this.save.emit(this.infor);
+    this.guard.alert = 2;
     localStorage.setItem('information', JSON.stringify(this.infor));
   }
 
   onBtnCancel() {
     const cache = JSON.parse(localStorage.getItem('information'));
-
     if (cache.name !== this.infor.name || cache.sex !== this.infor.sex || cache.age !== this.infor.age || cache.tel !== this.infor.tel || cache.address !== this.infor.address) {
-      alert('您已修改数据，未保存');
+      this.guard.alert = 1;
     }
-    this.onCache(cache);
-  }
-
-  onCache(value) {
-    this.save.emit(value);
+    this.router.navigate(['display']);
   }
 
   ngOnInit() {
     const cache = localStorage.getItem('information');
-    if (!cache) {
-      this.can = true;
-    } else {
+    this.guard.alert = 1;
+    if (cache) {
+      this.infor = JSON.parse(cache);
       this.can = false;
+    } else {
+      this.can = true;
     }
   }
 }
-
-
