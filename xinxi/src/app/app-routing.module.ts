@@ -3,6 +3,9 @@ import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './index/index.component';
 import {DisplayComponent} from './display/display.component';
 import {EditComponent} from './edit/edit.component';
+import {PracticeComponent} from './practice/practice.component';
+import {PracticeOneComponent} from './practice/practice-one/practice-one.component';
+import {PracticeTwoComponent} from './practice/practice-two/practice-two.component';
 import {EditGuard} from './edit/edit.guard';
 import {InforGuardService} from './services/inforservice.service';
 
@@ -10,7 +13,10 @@ const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: 'index', component: IndexComponent},
   {path: 'display', component: DisplayComponent, canActivate: [InforGuardService]},
-  {path: 'edit', component: EditComponent, canDeactivate: [EditGuard], canActivate: [InforGuardService]}
+  {path: 'edit', component: EditComponent, canDeactivate: [EditGuard], canActivate: [InforGuardService]},
+  {path: 'practice', component: PracticeComponent},
+  {path: 'practice-one', component: PracticeOneComponent},
+  {path: 'practice-two', component: PracticeTwoComponent}
 ];
 
 @NgModule({

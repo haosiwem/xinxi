@@ -1,5 +1,3 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
-
 form {
   width: 300px;
   background-color: #cce3f7;
@@ -20,7 +18,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-.cancel {
+.cancel,.btn {
   display: inline-block;
   float: right;
   padding: 6px 12px;
@@ -41,8 +39,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   border-radius: 4px;
   outline: none;
 }
-.cancel:hover{
+.cancel:hover,.btn:hover{
   background-color: #51a051;
+}
+.btn{
+  float: left;
 }
 
 .form-control {
@@ -53,7 +54,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 form > div label span {
   text-align: right;
   display: inline-block;
-  width: 70px;
+  width: 80px;
 }
 
 .alert {

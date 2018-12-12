@@ -7,15 +7,24 @@ import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/rout
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private router: Router) {
   }
+  public showPractice = true;
 
   onNavigated() {
     if (localStorage.getItem('information')) {
       this.router.navigate(['display']);
     } else {
       this.router.navigate(['edit']);
+    }
+  }
+
+  ngOnInit() {
+    if (localStorage.getItem('information')) {
+      this.showPractice = false;
+    } else {
+      this.showPractice = true;
     }
   }
 }

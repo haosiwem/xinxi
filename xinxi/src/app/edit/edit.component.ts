@@ -2,6 +2,7 @@ import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {Edit} from '../edit';
 import {Router} from '@angular/router';
 import {EditGuard} from './edit.guard';
+import {AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-edit',
@@ -12,20 +13,22 @@ export class EditComponent implements OnInit, OnChanges {
 
   public infor: Edit = new Edit();
 
-  public can = false;
+  public showCancel = false;
 
   constructor(private router: Router,
-              private guard: EditGuard) {
+              private guard: EditGuard,
+              private appComponent: AppComponent) {
   }
 
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['infor'] && changes['infor'].currentValue) {
-      this.can = false;
+      this.showCancel = false;
     }
   }
 
   onBtnAdd() {
     this.guard.alert = 2;
+    this.appComponent.showPractice = false;
     localStorage.setItem('information', JSON.stringify(this.infor));
   }
 
@@ -42,9 +45,9 @@ export class EditComponent implements OnInit, OnChanges {
     this.guard.alert = 1;
     if (cache) {
       this.infor = JSON.parse(cache);
-      this.can = false;
+      this.showCancel = false;
     } else {
-      this.can = true;
+      this.showCancel = true;
     }
   }
 }

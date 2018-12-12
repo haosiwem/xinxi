@@ -1,15 +1,14 @@
-.nav{
-  width: 360px;
+.practice_nav{
+  width: 200px;
   margin: 0 auto;
-  text-align: center;
 }
-.nav a{
+.practice_nav a{
   text-decoration: none;
   display: inline-block;
-  width: 100px;
+  width: 75px;
   height: 36px;
-  background-color: #f1c7c7;
-  color: #337ab7;
+  background-color: #64aae6;
+  color: #655c5c;
   font-size: 14px;
   border-radius: 10px;
   text-align: center;

@@ -66,8 +66,8 @@
     </div>
   </div>
   <div class="big-container">
-    <a routerLink="/display"><input type="submit" class="btn" (click)="onBtnAdd()" value="保存" class="btn btn-success"
+    <a routerLink="/display"><input type="submit" (click)="onBtnAdd()" value="保存" class="btn btn-success"
            [disabled]="!editForm.form.valid" /></a>
-    <input type="button" class="cancel" [class.hide]="can" value="取消" (click)="onBtnCancel()">
+    <input type="button" class="cancel" [class.hide]="showCancel" value="取消" (click)="onBtnCancel()">
   </div>
 </form>

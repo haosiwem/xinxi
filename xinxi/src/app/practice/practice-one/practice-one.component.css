@@ -1,0 +1,29 @@
+.practice_nav{
+  width: 200px;
+  margin: 0 auto;
+}
+.practice_nav a{
+  text-decoration: none;
+  display: inline-block;
+  width: 75px;
+  height: 36px;
+  background-color: #64aae6;
+  color: #655c5c;
+  font-size: 14px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 36px;
+  margin: 10px;
+  margin-top: 15px;
+}
+.practiceOne_p{
+  text-align: center;
+  font-size: 14px;
+}
+.practiceOne_p input{
+  height: 25px;
+  border-radius: 13px;
+  border: 2px solid #daabab;
+  outline: none;
+  padding-left: 5px;
+}

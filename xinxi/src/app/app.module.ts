@@ -1,13 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { DisplayComponent } from './display/display.component';
-import { EditComponent } from './edit/edit.component';
-import { IndexComponent } from './index/index.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {DisplayComponent} from './display/display.component';
+import {EditComponent} from './edit/edit.component';
+import {IndexComponent} from './index/index.component';
 import {EditGuard} from './edit/edit.guard';
+import {PracticeComponent} from './practice/practice.component';
+import {PracticeOneComponent} from './practice/practice-one/practice-one.component';
+import {PracticeTwoComponent} from './practice/practice-two/practice-two.component';
+import {UppercaseConversionPipe} from './practice/practice-one/practice-one.pipe';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import {EditGuard} from './edit/edit.guard';
     DisplayComponent,
     EditComponent,
     IndexComponent,
+    PracticeComponent,
+    PracticeOneComponent,
+    PracticeTwoComponent,
+    UppercaseConversionPipe
   ],
   imports: [
     BrowserModule,
@@ -26,4 +34,5 @@ import {EditGuard} from './edit/edit.guard';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
