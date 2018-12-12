@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
-import {AppService} from './app.service';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRouteSnapshot, Router, RouterStateSnapshot} from '@angular/router';
 
 
 @Component({
@@ -9,18 +8,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-
-  constructor(
-    // private appService: AppService, private router: Router
-  ) {
-    // if (localStorage.getItem('test')) {
-    //   this.router.navigate(['display']);
-    // }
+  constructor(private router: Router) {
   }
 
-
-  // static onIndexChange(event) {
-  //   console.log(event);
-  // }
+  onNavigated() {
+    if (localStorage.getItem('information')) {
+      this.router.navigate(['display']);
+    } else {
+      this.router.navigate(['edit']);
+    }
+  }
 }

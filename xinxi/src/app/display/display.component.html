@@ -4,6 +4,6 @@
   <p>年龄：{{infor.age}}</p>
   <p>电话：{{infor.tel}}</p>
   <p>家庭住址：{{infor.address}}</p>
-  <a routerLink="/edit"><button>修改</button></a>
+  <button (click)="onBtnEdit()">修改</button>
   <a routerLink="/edit"><button (click)="onBtnNew()">新建</button></a>
 </div>

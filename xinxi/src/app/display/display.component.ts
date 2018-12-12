@@ -22,13 +22,16 @@ export class DisplayComponent implements OnInit {
     const userJsonStr = localStorage.getItem('information');
     if (userJsonStr) {
       this.infor = JSON.parse(userJsonStr);
-    } else {
-      this.router.navigate(['edit']);
     }
   }
 
+  onBtnEdit() {
+    this.router.navigate(['edit'], {queryParams: {id: 1}});
+  }
+
   onBtnNew() {
+    localStorage.clear();
     this.editActive.new = true;
-    this.router.navigate(['edit']);
+    this.router.navigate(['edit'], {queryParams: {id: 1}});
   }
 }

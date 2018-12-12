@@ -5,12 +5,13 @@ import {DisplayComponent} from './display/display.component';
 import {EditComponent} from './edit/edit.component';
 import {EditGuard} from './edit/edit.guard';
 import {EditActiveGuard} from './edit/editActive.guard';
+import {InforGuardService} from './services/inforservice.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
   {path: 'index', component: IndexComponent},
-  {path: 'display', component: DisplayComponent},
-  {path: 'edit', component: EditComponent, canDeactivate: [EditGuard], canActivate: [EditActiveGuard]}
+  {path: 'display', component: DisplayComponent, canActivate: [InforGuardService]},
+  {path: 'edit', component: EditComponent, canDeactivate: [EditGuard], canActivate: [InforGuardService]}
 ];
 
 @NgModule({
