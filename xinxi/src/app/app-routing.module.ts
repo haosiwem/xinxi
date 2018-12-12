@@ -4,7 +4,6 @@ import {IndexComponent} from './index/index.component';
 import {DisplayComponent} from './display/display.component';
 import {EditComponent} from './edit/edit.component';
 import {EditGuard} from './edit/edit.guard';
-import {EditActiveGuard} from './edit/editActive.guard';
 import {InforGuardService} from './services/inforservice.service';
 
 const routes: Routes = [

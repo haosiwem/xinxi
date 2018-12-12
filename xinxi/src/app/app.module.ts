@@ -8,7 +8,6 @@ import { DisplayComponent } from './display/display.component';
 import { EditComponent } from './edit/edit.component';
 import { IndexComponent } from './index/index.component';
 import {EditGuard} from './edit/edit.guard';
-import {EditActiveGuard} from './edit/editActive.guard';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import {EditActiveGuard} from './edit/editActive.guard';
     AppRoutingModule
   ],
   providers: [
-    EditGuard,
-    EditActiveGuard
+    EditGuard
   ],
   bootstrap: [AppComponent]
 })
