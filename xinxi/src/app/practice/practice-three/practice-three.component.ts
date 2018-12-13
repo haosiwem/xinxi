@@ -20,7 +20,6 @@ export class PracticeThreeComponent implements OnInit, OnDestroy {
     this.date = new Date();
     this.contiuneSubscription = interval(1000).subscribe(() => {
       this.date = new Date();
-      console.log('ssss');
     });
   }
 
