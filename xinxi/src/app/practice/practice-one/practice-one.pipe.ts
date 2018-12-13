@@ -6,41 +6,32 @@ export class UppercaseConversionPipe implements PipeTransform {
     const reg = /^\d{1,3}(\.\d{1,2})?$/;
     if (reg.test(String(value))) {
       return this.onToUppercase(value);
+    } else if (String(value) === '') {
+      return '';
     } else {
       return '最多三位整数，两位小数';
     }
   }
 
-  onToUppercase(num) {
-    const numUppercase = '零壹贰叁肆伍陆柒捌玖';
-    const moneyUppercase = '分角元拾佰';
-    // tslint:disable-next-line:prefer-const
-    let uppercaseNum = [];
-    let isSpot = false;
-    if (num.indexOf('.') !== -1) {
-      num = (num * 100).toString();
-      isSpot = true;
+  onToUppercase(n) {
+    const fraction = ['角', '分'];
+    const digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+    const unit = ['元', '拾', '佰'];
+
+    let s = '';
+
+    for (let i = 0; i < fraction.length; i++) {
+      s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
     }
-    Math.floor(num);
-    for (let i = num.length; i > 0; i--) {
-      uppercaseNum.push(numUppercase[num[num.length - i]]);
-      if (isSpot) {
-        uppercaseNum.push(moneyUppercase[i - 1]);
-      } else {
-        uppercaseNum.push(moneyUppercase[i + 1]);
-      }
+    s = s || '整';
+    n = Math.floor(n);
+
+    let p = '';
+    for (let j = 0; j < unit.length && n > 0; j++) {
+      p = digit[n % 10] + unit[j] + p;
+      n = Math.floor(n / 10);
     }
-    for (let n = 0; n < uppercaseNum.length; n++) {
-      if (uppercaseNum[n] + uppercaseNum[n + 1] + uppercaseNum[n + 2] === '零拾零') {
-        uppercaseNum.splice(n, 3);
-      } else if (uppercaseNum[n] + uppercaseNum[n + 1] === '零拾') {
-        uppercaseNum.splice(n + 1, 1);
-      } else if (uppercaseNum[n] + uppercaseNum[n + 1] === '零元') {
-        uppercaseNum.splice(n, 1);
-      } else if (uppercaseNum[n] === '零') {
-        uppercaseNum.splice(n, 2);
-      }
-    }
-    return uppercaseNum.join('');
+    s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + s;
+    return s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整');
   }
 }
