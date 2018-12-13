@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {interval} from 'rxjs';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {interval, Subscription} from 'rxjs';
 import {PracticeThreeServiceService} from '../../services/practice-three-service.service';
 
 @Component({
@@ -7,16 +7,24 @@ import {PracticeThreeServiceService} from '../../services/practice-three-service
   templateUrl: './practice-three.component.html',
   styleUrls: ['./practice-three.component.css']
 })
-export class PracticeThreeComponent implements OnInit {
+export class PracticeThreeComponent implements OnInit, OnDestroy {
 
   constructor(public prThreeService: PracticeThreeServiceService) {
   }
+
+  private contiuneSubscription: Subscription;
 
   date: Date;
 
   ngOnInit() {
     this.date = new Date();
-    const systemTime = interval(1000);
-    systemTime.subscribe(() => this.date = new Date());
+    this.contiuneSubscription = interval(1000).subscribe(() => {
+      this.date = new Date();
+      console.log('ssss');
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.contiuneSubscription.unsubscribe();
   }
 }
