@@ -12,6 +12,7 @@ import {PracticeComponent} from './practice/practice.component';
 import {PracticeOneComponent} from './practice/practice-one/practice-one.component';
 import {PracticeTwoComponent} from './practice/practice-two/practice-two.component';
 import {UppercaseConversionPipe} from './practice/practice-one/practice-one.pipe';
+import {PracticeThreeComponent} from './practice/practice-three/practice-three.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {UppercaseConversionPipe} from './practice/practice-one/practice-one.pipe
     PracticeComponent,
     PracticeOneComponent,
     PracticeTwoComponent,
-    UppercaseConversionPipe
+    UppercaseConversionPipe,
+    PracticeThreeComponent
   ],
   imports: [
     BrowserModule,

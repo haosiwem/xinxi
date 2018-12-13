@@ -6,8 +6,9 @@ import {EditComponent} from './edit/edit.component';
 import {PracticeComponent} from './practice/practice.component';
 import {PracticeOneComponent} from './practice/practice-one/practice-one.component';
 import {PracticeTwoComponent} from './practice/practice-two/practice-two.component';
+import {PracticeThreeComponent} from './practice/practice-three/practice-three.component';
 import {EditGuard} from './edit/edit.guard';
-import {InforGuardService} from './services/inforservice.service';
+import {InforGuardService} from './services/infor-service.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/index', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'edit', component: EditComponent, canDeactivate: [EditGuard], canActivate: [InforGuardService]},
   {path: 'practice', component: PracticeComponent},
   {path: 'practice-one', component: PracticeOneComponent},
-  {path: 'practice-two', component: PracticeTwoComponent}
+  {path: 'practice-two', component: PracticeTwoComponent},
+  {path: 'practice-three', component: PracticeThreeComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GlobalService} from '../../global.service';
+import {GlobalService} from '../../services/global.service';
 import {MomentService} from './moment.service';
 
 @Component({
@@ -10,8 +10,8 @@ import {MomentService} from './moment.service';
 })
 export class PracticeTwoComponent implements OnInit {
 
-  constructor(private globalService: GlobalService,
-              private momentService: MomentService) {
+  constructor(public globalService: GlobalService,
+              public momentService: MomentService) {
   }
 
   ngOnInit() {

@@ -1,8 +1,9 @@
-.practice_nav{
+.practice_nav {
   width: 290px;
   margin: 0 auto;
 }
-.practice_nav a{
+
+.practice_nav a {
   text-decoration: none;
   display: inline-block;
   width: 75px;
@@ -16,14 +17,7 @@
   margin: 10px;
   margin-top: 15px;
 }
-.practiceOne_p{
+
+P, h2 {
   text-align: center;
-  font-size: 14px;
-}
-.practiceOne_p input{
-  height: 25px;
-  border-radius: 13px;
-  border: 2px solid #daabab;
-  outline: none;
-  padding-left: 5px;
 }
