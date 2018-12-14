@@ -1,0 +1,26 @@
+.practice_nav {
+  width: 380px;
+  margin: 0 auto;
+}
+
+.practice_nav a {
+  text-decoration: none;
+  display: inline-block;
+  width: 75px;
+  height: 36px;
+  background-color: #64aae6;
+  color: #655c5c;
+  font-size: 14px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 36px;
+  margin: 10px;
+  margin-top: 15px;
+}
+
+.map{
+  width: 1000px;
+  height: 600px;
+  border: 1px solid #000;
+  margin: 20px auto;
+}

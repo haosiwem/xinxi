@@ -9,10 +9,11 @@ import {EditComponent} from './edit/edit.component';
 import {IndexComponent} from './index/index.component';
 import {EditGuard} from './edit/edit.guard';
 import {PracticeComponent} from './practice/practice.component';
-import {PracticeOneComponent} from './practice/practice-one/practice-one.component';
-import {PracticeTwoComponent} from './practice/practice-two/practice-two.component';
-import {UppercaseConversionPipe} from './practice/practice-one/practice-one.pipe';
-import {PracticeThreeComponent} from './practice/practice-three/practice-three.component';
+import {PracticeOneComponent} from './practice/component/practice-one/practice-one.component';
+import {PracticeTwoComponent} from './practice/component/practice-two/practice-two.component';
+import {UppercaseConversionPipe} from './practice/component/practice-one/practice-one.pipe';
+import {PracticeThreeComponent} from './practice/component/practice-three/practice-three.component';
+import { PracticeFourComponent } from './practice/component/practice-four/practice-four.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {PracticeThreeComponent} from './practice/practice-three/practice-three.c
     PracticeOneComponent,
     PracticeTwoComponent,
     UppercaseConversionPipe,
-    PracticeThreeComponent
+    PracticeThreeComponent,
+    PracticeFourComponent
   ],
   imports: [
     BrowserModule,

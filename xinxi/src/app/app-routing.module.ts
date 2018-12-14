@@ -4,9 +4,10 @@ import {IndexComponent} from './index/index.component';
 import {DisplayComponent} from './display/display.component';
 import {EditComponent} from './edit/edit.component';
 import {PracticeComponent} from './practice/practice.component';
-import {PracticeOneComponent} from './practice/practice-one/practice-one.component';
-import {PracticeTwoComponent} from './practice/practice-two/practice-two.component';
-import {PracticeThreeComponent} from './practice/practice-three/practice-three.component';
+import {PracticeOneComponent} from './practice/component/practice-one/practice-one.component';
+import {PracticeTwoComponent} from './practice/component/practice-two/practice-two.component';
+import {PracticeThreeComponent} from './practice/component/practice-three/practice-three.component';
+import {PracticeFourComponent} from './practice/component/practice-four/practice-four.component';
 import {EditGuard} from './edit/edit.guard';
 import {InforGuardService} from './services/infor-service.service';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'practice', component: PracticeComponent},
   {path: 'practice-one', component: PracticeOneComponent},
   {path: 'practice-two', component: PracticeTwoComponent},
-  {path: 'practice-three', component: PracticeThreeComponent}
+  {path: 'practice-three', component: PracticeThreeComponent},
+  {path: 'practice-four', component: PracticeFourComponent}
 ];
 
 @NgModule({

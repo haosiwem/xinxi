@@ -1,0 +1,22 @@
+<nav class="practice_nav">
+  <a routerLink="/practice-one">练习一</a>
+  <a routerLink="/practice-two">练习二</a>
+  <a routerLink="/practice-three">练习三</a>
+  <a routerLink="/practice-four">练习四</a>
+</nav>
+
+
+<div class="practice_big">
+  <div>
+    <button (click)="onBtnGlobal()">GlobalMoodService</button>
+    <ul *ngFor="let message of globalService.globalMessage">
+      <li>{{message}}</li>
+    </ul>
+  </div>
+  <div>
+    <button (click)="onBtnMoment()">MomentMoodService</button>
+    <ul *ngFor="let message of momentService.momentMessage">
+      <li>{{message}}</li>
+    </ul>
+  </div>
+</div>
