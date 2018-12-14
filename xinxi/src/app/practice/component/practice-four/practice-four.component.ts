@@ -14,6 +14,7 @@ export class PracticeFourComponent implements OnInit {
   }
 
   getMap() {
+    const information = JSON.parse(localStorage.getItem('information'));
     const map = new AMap.Map('container', {
       resizeEnable: true,
       center: [123.447791, 41.722535],
@@ -37,7 +38,12 @@ export class PracticeFourComponent implements OnInit {
       const infoWindow = new SimpleInfoWindow({
 
         infoTitle: '<strong>IT国际</strong>',
-        infoBody: '<p class="my-desc"><strong>美行科技。</strong> <br/> 哈哈哈哈哈</p >',
+        infoBody: '<p class="my-desc"><strong>个人信息</strong> ' +
+          '<br/> 姓名：' + information.name + '' +
+          '<br/> 性别：' + information.sex + '' +
+          '<br/> 年龄：' + information.age + '' +
+          '<br/> 电话：' + information.tel + '' +
+          '<br/> 地址：' + information.address + '</p >',
 
         offset: new AMap.Pixel(0, -31)
       });
