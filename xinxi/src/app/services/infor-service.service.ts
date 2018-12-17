@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InforGuardService implements CanActivate {
 
-  constructor() { }
+  constructor() {
+  }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
 

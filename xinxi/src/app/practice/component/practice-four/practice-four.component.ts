@@ -13,22 +13,26 @@ export class PracticeFourComponent implements OnInit {
   constructor() {
   }
 
-  getMap() {
-    const information = JSON.parse(localStorage.getItem('information'));
+  public information = JSON.parse(localStorage.getItem('information'));
+
+  public markerIT = new AMap.Marker({
+    position: new AMap.LngLat(123.447791, 41.722535),
+    title: 'IT国际 美行科技'
+  });
+
+  public placeSearch = new AMap.PlaceSearch();
+  public infoWindow = new AMap.AdvancedInfoWindow({});
+
+  ngOnInit() {
     const map = new AMap.Map('container', {
       resizeEnable: true,
       center: [123.447791, 41.722535],
       zoom: 11,
       isHotspot: true
     });
-    const marker = new AMap.Marker({
-      position: new AMap.LngLat(123.447791, 41.722535),
-      title: 'IT国际 美行科技'
-    });
-    map.add(marker);
+    map.add(this.markerIT);
 
-    AMapUI.loadUI(['overlay/SimpleInfoWindow'], function (SimpleInfoWindow) {
-
+    AMapUI.loadUI(['overlay/SimpleInfoWindow'], (SimpleInfoWindow) => {
       const marker = new AMap.Marker({
         map: map,
         zIndex: 9999999,
@@ -39,55 +43,46 @@ export class PracticeFourComponent implements OnInit {
 
         infoTitle: '<strong>IT国际</strong>',
         infoBody: '<p class="my-desc"><strong>个人信息</strong> ' +
-          '<br/> 姓名：' + information.name + '' +
-          '<br/> 性别：' + information.sex + '' +
-          '<br/> 年龄：' + information.age + '' +
-          '<br/> 电话：' + information.tel + '' +
-          '<br/> 地址：' + information.address + '</p >',
+          '<br/> 姓名：' + this.information.name + '' +
+          '<br/> 性别：' + this.information.sex + '' +
+          '<br/> 年龄：' + this.information.age + '' +
+          '<br/> 电话：' + this.information.tel + '' +
+          '<br/> 地址：' + this.information.address + '</p >',
 
         offset: new AMap.Pixel(0, -31)
       });
 
-      function openInfoWin() {
+      let openInfoWin = () => {
         infoWindow.open(map, marker.getPosition());
-      }
+      };
 
-      AMap.event.addListener(marker, 'click', function () {
+      AMap.event.addListener(marker, 'click', () => {
         openInfoWin();
       });
-
-      openInfoWin();
     });
 
-    const placeSearch = new AMap.PlaceSearch();
-    const infoWindow = new AMap.AdvancedInfoWindow({});
-    map.on('hotspotclick', function (result) {
-      placeSearch.getDetails(result.id, function (status, result) {
+    map.on('hotspotclick', (result) => {
+      this.placeSearch.getDetails(result.id, (status, result) => {
         if (status === 'complete' && result.info === 'OK') {
           placeSearch_CallBack(result);
         }
       });
     });
 
-    function placeSearch_CallBack(data) {
+    let placeSearch_CallBack = (data) => {
       const poiArr = data.poiList.pois;
       const location = poiArr[0].location;
-      infoWindow.setContent(createContent(poiArr[0]));
-      infoWindow.open(map, location);
-    }
+      this.infoWindow.setContent(createContent(poiArr[0]));
+      this.infoWindow.open(map, location);
+    };
 
-    function createContent(poi) {
+    let createContent = (poi) => {
       const s = [];
       s.push('<div class="info-title">' + poi.name + '</div><div class="info-content">' + '地址：' + poi.address);
       s.push('电话：' + poi.tel);
       s.push('类型：' + poi.type);
       s.push('<div>');
       return s.join('<br>');
-    }
-
-  }
-
-  ngOnInit() {
-    this.getMap();
+    };
   }
 }
