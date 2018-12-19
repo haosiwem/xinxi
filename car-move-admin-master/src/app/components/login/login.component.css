@@ -1,0 +1,48 @@
+h1 {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.login {
+  width: 400px;
+  height: 270px;
+  border-radius: 30px;
+  background-color: #9e9e9e;
+  position: absolute;
+  top: calc(50% - 135px);
+  left: calc(50% - 200px);
+}
+
+.login div {
+  text-align: center;
+  margin: 45px 0px;
+}
+
+.error{
+  color: red;
+  position: absolute;
+  top: 172px;
+  left: 143px;
+}
+
+.login div input {
+  width: 225px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  outline: none;
+  padding-left: 10px;
+}
+
+.btnLogin {
+  width: 120px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #1E67DC;
+  outline: none;
+  text-align: center;
+  border: none;
+  color: #fff;
+  position: absolute;
+  left: calc(50% - 60px)
+}

@@ -1,0 +1,42 @@
+<div class="main-layout">
+  <div class="main-header-layout">
+    <div class="main-logo"></div>
+    <div class="header-menu">
+      <!--<button-->
+        <!--[routerLink]="['','main']" [routerLinkActive]="['btn-active']" (click)="onBtnMain()">首页-->
+      <!--</button>-->
+      <!--<button-->
+        <!--[routerLink]="['','link']" [routerLinkActive]="['btn-active']">系统-->
+      <!--</button>-->
+      <!--<button-->
+        <!--[routerLink]="['','management']" [routerLinkActive]="['btn-active']">洗车-->
+      <!--</button>-->
+      <button [class.btn-active]="mainShow" (click)="onBtnMain()">首页</button>
+      <button [class.btn-active]="linkShow" (click)="onBtnLink()">生成链接</button>
+      <button [class.btn-active]="managementShow" (click)="onBtnManagement()">管理</button>
+    </div>
+    <div class="main-header">
+      <div class="main-header-user">
+      </div>
+      <span>admin</span>
+      <div class="main-header-logout" (click)="onLogoutDivClick()"></div>
+      <div class="logout-btn" (click)="onLogoutDivClick()">退出</div>
+    </div>
+  </div>
+  <div class="main-left">
+    <nz-collapse>
+      <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active"
+                         [nzDisabled]="panel.disabled">
+        <p style="margin:0;" *ngFor="let content of panel.content" class="main-left-nav">{{content}}</p>
+      </nz-collapse-panel>
+    </nz-collapse>
+  </div>
+  <div class="main-right">
+    <div class="main-crumb">
+      <span>{{crumb}}</span>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

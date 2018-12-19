@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.less";
+@import "assets/less/variable";
+@import "assets/less/content";
+
+// -------- 自定义参数覆盖 -----------
+@primary-color: @theme-color;
+@text-color: @v-text-color;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  //-moz-user-select: none; /*火狐*/
+  //-webkit-user-select: none; /*webkit浏览器*/
+  //-ms-user-select: none; /*IE10*/
+  //-khtml-user-select: none; /*早期浏览器*/
+  //user-select: none;
+  overflow: hidden;
+  //color: @theme-color;
+  color: red;
+
+}
+
+ul {
+  padding: 0;
+  list-style: none
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-left: 0 !important;
+  padding-right: 5px !important;
+}
+
+/**** ant 覆盖 */
+.ant-btn {
+  display: flex;
+  align-items: center;
+}
+
+.ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+  padding: 10px;
+  text-align: center;
+}
+
+.ant-table-pagination {
+  margin-right: 15px !important;
+}
+
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+  background: @body-bg-color;
+  border: none;
+}
+
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  border: none;
+}
+
+.ant-tabs-nav-container {
+  background: @body-fg-color;
+}
+
+.ant-table-thead > tr > th {
+  background: #fafbfe;
+  font-weight: bold;
+}
+
+nz-table > div {
+  border-top: 1px solid @border-light-color;
+}
+
+nz-date-picker {
+  margin: 0 8px 0px 0;
+}
+
+.ant-steps {
+  padding: 30px;
+  width: auto;
+}
+
+/** 时间显示 **/
+.zmy-date-picker-group nz-date-picker {
+  width: 150px;
+}
+
+.zmy-date-picker-group .ant-time-picker {
+  margin: 0 0 0 -5px;
+  width: 110px;
+}
+
+/** 删除提示 **/
+.ant-btn {
+  display: inline-block;
+  align-items: center;
+}
+
+.ant-modal-body {
+  text-align: center;
+}
+
+.ng-star-inserted {
+  //font-weight: 100;
+}

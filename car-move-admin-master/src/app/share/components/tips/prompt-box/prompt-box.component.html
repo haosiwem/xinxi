@@ -1,0 +1,22 @@
+<!-- 提示模态框 -->
+<div class="modal" data-keyboard="true" data-backdrop="false" tabindex="-1" #promptDiv>
+  <div class="modal-dialog">
+    <div class="modal-content" >
+      <div class="modal-header">
+        <h4 class="modal-title">提示</h4>
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+          &times;
+        </button>
+      </div>
+      <form class="form-horizontal">
+        <div class="modal-body">
+          <div class="modal-warning-icon"></div>
+          <div>{{message}}</div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button nz-button nzType="primary" (click)="close()">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
