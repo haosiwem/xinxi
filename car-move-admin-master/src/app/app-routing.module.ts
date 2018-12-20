@@ -1,35 +1,37 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AppComponent} from './app.component';
-import {LoginComponent} from './components/login/login.component';
-import {LoginGuard} from './components/login/login.guard';
-import {IndexGuard} from './index.guard';
-import {MainComponent} from './share/components/main/main.component';
-import {LinkComponent} from './share/components/link/link.component';
-import {ManagementComponent} from './share/components/management/management.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginGuard } from './components/login/login.guard';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent, canActivate: [LoginGuard]},
   {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
+  {path: '', component: LoginComponent, pathMatch: 'full', canActivate: [LoginGuard]},
   {
-    path: '', component: AppComponent, children: [
-      {path: '', redirectTo: '/main', pathMatch: 'full'},
+    path: 'main', component: AppComponent, children: [
+      {path: '', redirectTo: 'main-nav', pathMatch: 'full'},
       {
-        path: 'main',
-        component: MainComponent,
-        canActivate: [IndexGuard]
+        path: 'main-nav',
+        loadChildren: './share/components/main/main.module#MainModule'
       },
+    ]
+  },
+  {
+    path: 'link', component: AppComponent, children: [
+      {path: '', redirectTo: 'link-nav', pathMatch: 'full'},
       {
-        path: 'link',
-        component: LinkComponent,
-        canActivate: [IndexGuard]
+        path: 'link-nav',
+        loadChildren: './share/components/link/link.module#LinkModule'
       },
+    ]
+  },
+  {
+    path: 'management', component: AppComponent, children: [
+      {path: '', redirectTo: 'management-nav', pathMatch: 'full'},
       {
-        path: 'management',
-        component: ManagementComponent,
-        canActivate: [IndexGuard]
+        path: 'management-nav',
+        loadChildren: './share/components/management/management.module#ManagementModule'
       },
-      {path: '**', redirectTo: '/main/home', pathMatch: 'full'},
     ]
   }];
 

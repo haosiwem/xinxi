@@ -1,0 +1,26 @@
+<div class="link-record-crumb">
+  <span>链接</span>
+</div>
+<div class="link-record-content">
+  <p class="title">生成链接历史记录</p>
+  <div class="link-tab">
+    <nz-table #filterTable [nzData]="displayData" #borderedTable nzBordered>
+      <thead (nzSortChange)="sort($event)" nzSingleSort>
+      <tr>
+        <th nzShowSort nzSortKey="name" (nzFilterChange)="filter($event,searchAddress)">日期</th>
+        <th nzShowSort nzSortKey="age">时间</th>
+        <th nzShowSort nzSortKey="address" [nzFilterMultiple]="false" (nzFilterChange)="filter(listOfSearchName,$event)">数量</th>
+        <th nzShowSort nzSortKey="operation">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of filterTable.data">
+        <td>{{data.date}}</td>
+        <td>{{data.time}}</td>
+        <td>{{data.number}}</td>
+        <td>{{data.operation}}</td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>

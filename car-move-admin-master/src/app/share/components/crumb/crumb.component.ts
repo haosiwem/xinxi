@@ -41,6 +41,7 @@ export class CrumbComponent {
   public onLevel1LabelClick() {
     if (!isNullOrUndefined(this.level1RelativePath)) {
       if (!isNullOrUndefined(this.level1RelativePathParams)) {
+        debugger;
         this.router.navigate([this.level1RelativePath, this.level1RelativePathParams], {relativeTo: this.route});
       } else {
         this.router.navigate([this.level1RelativePath], {relativeTo: this.route});

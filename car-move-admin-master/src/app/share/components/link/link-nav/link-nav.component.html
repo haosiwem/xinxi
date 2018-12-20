@@ -1,0 +1,12 @@
+<div class="left">
+  <nz-collapse>
+    <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active"
+                       [nzDisabled]="panel.disabled">
+      <p style="margin:0;" class="main-left-nav" routerLink="linkHome" [routerLinkActive]="['btn-active']" class="link" >生成链接</p>
+      <p style="margin:0;" class="main-left-nav" routerLink="linkRecordHome" [routerLinkActive]="['btn-active']" class="link-record" >生成链接历史记录</p>
+    </nz-collapse-panel>
+  </nz-collapse>
+</div>
+<div class="right">
+  <router-outlet></router-outlet>
+</div>
