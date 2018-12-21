@@ -1,0 +1,25 @@
+<div class="management-seeEdit-crumb">
+  <span><a class="management-seeEdit-crumb-a" routerLink="/management/management-nav/managementHome">管理</a> / 编辑</span>
+</div>
+<div class="management-seeEdit-content">
+  <p class="title">编辑虾客</p>
+  <form class="management-edit-form">
+    <p>
+      <label><span>链接：</span>
+        <input type="text" name="link" style="background-color: #dedede;" [(ngModel)]="link" disabled />
+      </label>
+    </p>
+    <p>
+      <label><span><a>*</a>手机号：</span>
+        <input type="text" name="tel" [(ngModel)]="tel" />
+      </label>
+    </p>
+    <p>
+      <label><span><a>*</a>车牌号：</span>
+        <input type="text" name="brand" [(ngModel)]="brand" />
+      </label>
+    </p>
+    <p><span>启用状态：</span><nz-switch [(ngModel)]="switchValue"></nz-switch></p>
+    <p class="management-edit-form-btn"><input type="button" routerLink="/management/management-nav/managementHome" value="提交" (click)="onBtnSubmit()" /></p>
+  </form>
+</div>

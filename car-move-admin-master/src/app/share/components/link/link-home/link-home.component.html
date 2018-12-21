@@ -6,11 +6,14 @@
   <form>
     <p>
       <label><span>* </span> 数量:
-        <input type="text" />
+        <input type="text" [(ngModel)]="num" name="num" class="link-input" />
       </label>
     </p>
+    <p style="color: red;margin: 10px;" [class.link-error]="errorShow">请输入数字</p>
     <p>
-      <button>生成并导出</button>
+      <a download="down.xml" href="src/app/share/components/link/link-record-home/down.xml" (click)="onBtnExport()">
+        <input type="button" value="生成并导出" class="link-button" />
+      </a>
     </p>
   </form>
 </div>

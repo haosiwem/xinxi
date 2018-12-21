@@ -1,0 +1,30 @@
+<div class="management-seeEdit-crumb">
+  <span><a class="management-seeEdit-crumb-a" routerLink="/management/management-nav/managementHome">管理</a> / 查看</span>
+</div>
+<div class="management-seeEdit-content">
+  <p class="title">数据列表</p>
+  <nz-table #borderedTable nzBordered [nzData]="seeData">
+    <thead>
+    <tr>
+      <th>日期</th>
+      <th>时间</th>
+      <th>链接</th>
+      <th>手机号A</th>
+      <th>车牌号</th>
+      <th>手机号B</th>
+      <th>通话时长</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of borderedTable.data">
+      <td>{{data.date}}</td>
+      <td>{{data.time}}</td>
+      <td>{{data.link}}</td>
+      <td>{{data.tel}}</td>
+      <td>{{data.brand}}</td>
+      <td>{{data.telB}}</td>
+      <td>{{data.talkTime}}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

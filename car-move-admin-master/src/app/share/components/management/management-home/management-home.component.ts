@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ManagementServiceService} from '../../../services/management-service.service';
 
 @Component({
   selector: 'app-management-home',
@@ -7,138 +8,30 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ManagementHomeComponent implements OnInit {
 
-  constructor() {
+  constructor(public managementService: ManagementServiceService) {
   }
 
-  public dataSet = [
-    {
-      key: '1',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '2',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '3',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '4',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '5',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '6',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '1',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '2',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '3',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '4',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '5',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '6',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '1',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '2',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '3',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '4',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '5',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    },
-    {
-      key: '6',
-      link: 'http://9c.ltd/56w',
-      tel: '13252862883',
-      brand: '辽A12345',
-      switchValue: true
-    }
-  ];
+  public tel = '';
+  public brand = '';
+  public dataSet = [];
 
   ngOnInit() {
+    this.dataSet = this.managementService.dataset;
+  }
+
+  onBtnReset() {
+    this.tel = '';
+    this.brand = '';
+  }
+
+  onBtnSubmit() {
+    this.dataSet = [];
+    for (let i = 0; i < this.managementService.dataset.length; i++) {
+      const telIndex = this.managementService.dataset[i].tel.indexOf(this.tel);
+      const brandIndex = this.managementService.dataset[i].brand.indexOf(this.brand);
+      if (telIndex !== -1 && brandIndex !== -1) {
+        this.dataSet.push(this.managementService.dataset[i]);
+      }
+    }
   }
 }

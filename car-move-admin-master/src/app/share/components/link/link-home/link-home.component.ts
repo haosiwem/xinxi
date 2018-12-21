@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-link-home',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinkHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
+
+  public num: number;
+  public errorShow = true;
 
   ngOnInit() {
   }
 
+  onBtnExport() {
+    if (isNaN(this.num) || this.num === null) {
+      this.errorShow = false;
+      this.num = null;
+      return false;
+    } else {
+      this.num = null;
+      this.errorShow = true;
+    }
+  }
 }

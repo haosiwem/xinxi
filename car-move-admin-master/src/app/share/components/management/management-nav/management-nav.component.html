@@ -1,7 +1,7 @@
 <div class="left">
   <nz-collapse nzAccordion>
     <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
-      <p (click)="routerLink()" [routerLink]="panel.router" [routerLinkActive]="['btn-active']">{{panel.name}}</p>
+      <p [routerLink]="panel.router" [routerLinkActive]="['btn-active']">{{panel.name}}</p>
     </nz-collapse-panel>
   </nz-collapse>
 </div>

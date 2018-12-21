@@ -31,26 +31,23 @@
 <div class="user-screen">
   <p class="title">数据列表</p>
   <div class="management-tab">
-    <nz-table #borderedTable nzBordered [nzData]="dataSet">
+    <nz-table #borderedTable nzBordered [nzData]="userData">
       <thead>
       <tr>
-        <th>链接</th>
+        <th>时间</th>
         <th>手机号</th>
         <th>车牌号</th>
-        <th>启用</th>
+        <th>服务状态</th>
         <th>操作</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let data of borderedTable.data">
-        <td>{{data.link}}</td>
+        <td>{{data.date}}{{data.time}}</td>
         <td>{{data.tel}}</td>
         <td>{{data.brand}}</td>
-        <td><nz-switch [(ngModel)]="data.switchValue"></nz-switch></td>
-        <td>
-          <span>查看</span>&nbsp;&nbsp;&nbsp;
-          <span>编辑</span>
-        </td>
+        <td>{{data.state}}</td>
+        <td><span class="user-operation" (click)="onBtnBlacklist(data.key)">{{data.operation}}</span></td>
       </tr>
       </tbody>
     </nz-table>
